@@ -6,6 +6,9 @@
 
 **25 個 AI 驅動分析框架 · 全平台支援 · 完全開源**
 
+**無需 API 金鑰 · 無需訂閱 · 完全免費**
+
+[![Cost: $0](https://img.shields.io/badge/%E8%B2%BB%E7%94%A8-%240%20%C2%B7%20%E7%84%A1%E9%A0%88%20API%20%E9%87%91%E9%91%B0-22c55e?style=for-the-badge)](#-無需-api-金鑰完全免費)
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/yennanliu/InvestSkill?style=for-the-badge&color=gold)](https://github.com/yennanliu/InvestSkill/stargazers)
 [![GitHub Release](https://img.shields.io/github/v/release/yennanliu/InvestSkill?style=for-the-badge&color=green)](https://github.com/yennanliu/InvestSkill/releases)
@@ -20,6 +23,8 @@
 ## 🎯 什麼是 InvestSkill？
 
 InvestSkill 是企業級投資分析工具包，為各 AI 平台帶來機構級分析框架。透過 25 個完整框架進行專業股票分析——無需金融執照，無需 API 費用。
+
+**不用註冊，也不用付費。** 沒有 API 金鑰、沒有資料商訂閱、不必設定帳單——你只要用手上已有的 AI 助理（免費方案或本機模型都可以），InvestSkill 本身就只是 markdown 提示詞。詳見 [無需 API 金鑰，完全免費](#-無需-api-金鑰完全免費)。
 
 > **適合用於**：投資研究 · 盡職調查 · 投資組合管理 · 金融教育 · 股票評估
 
@@ -84,6 +89,24 @@ cd /path/to/InvestSkill
 gemini
 > @prompts/stock-eval.md 評估蘋果公司
 ```
+
+---
+
+## 💸 無需 API 金鑰，完全免費
+
+使用 InvestSkill **完全免費**——沒有任何東西要購買、註冊或設定。
+
+| | |
+|---|---|
+| **API 金鑰** | **不需要。** 不用 OpenAI / Anthropic / Alpha Vantage / Polygon 金鑰。這個外掛從不呼叫任何 API——因為它根本沒有可執行的程式碼。 |
+| **訂閱費用** | **不需要。** 沒有付費方案、沒有席次授權、沒有用量計費、不用開帳號。 |
+| **行情資料費** | **不需要。** 不用 Bloomberg、不用付費資料源。AI 讀取公開申報文件與免費來源——或由你自己把數字貼進去。 |
+| **安裝與執行環境** | **不需要。** 每個技能都只是純 markdown 提示詞。本機沒有任何程式在跑，也就不會回傳任何資料。 |
+| **授權** | **MIT。** 可自由使用、分支修改，個人或商業用途皆可。 |
+
+**你唯一需要的，是手上已經在用的 AI 助理。** 可以是付費方案（Claude Code、Cursor、Copilot）、免費方案（ChatGPT、Gemini、Claude.ai），也可以是透過 [Ollama](README-ollama.md) 完全離線的本機模型——用後者跑完所有框架，總成本就是 0。
+
+> 因為沒有 API，也就沒有任何遙測：InvestSkill 不會看到你的股票代號、你的持股，或你的分析內容。數字實際從何而來，請見[資料與準確性](site/content/DATA-AND-ACCURACY-zh-TW.md)。
 
 ---
 

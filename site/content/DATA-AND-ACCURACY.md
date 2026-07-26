@@ -15,6 +15,8 @@
 
 > **Consequence:** if you ask "evaluate AAPL" with no data and no tool access, the model answers from training memory — which is dated and may be wrong. Always anchor the analysis with current, primary-source data.
 
+**This is also why InvestSkill is free and needs no API key.** There is no data feed to subscribe to and no endpoint to authenticate against — you never enter a key, and the frameworks cost nothing to run beyond the AI assistant you already use (including free tiers and offline local models). The trade-off is the one above: *you* are responsible for putting good data in front of the model.
+
 ---
 
 ## The Data & Sources Header

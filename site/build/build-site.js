@@ -711,13 +711,13 @@ function htmlPage(page, content) {
     ? {
         badge:  `${FRAMEWORK_COUNT} 項分析框架`,
         cta:    '開始使用', ctaHref: '#-快速開始30-秒',
-        stats:  [[String(FRAMEWORK_COUNT), '分析框架'], ['MIT', '開源免費'], ['0', '免安裝 · 純提示詞']],
+        stats:  [[String(FRAMEWORK_COUNT), '分析框架'], ['$0', '零 API 金鑰 · 零費用'], ['MIT', '開源授權'], ['0', '免安裝 · 純提示詞']],
         platLabel: '支援平台',
       }
     : {
         badge:  `${FRAMEWORK_COUNT} analysis frameworks`,
         cta:    'Get Started', ctaHref: '#quick-start',
-        stats:  [[String(FRAMEWORK_COUNT), 'Analysis frameworks'], ['MIT', 'Open-source & free'], ['0', 'Runtime — just prompts']],
+        stats:  [[String(FRAMEWORK_COUNT), 'Analysis frameworks'], ['$0', 'No API keys · no fees'], ['MIT', 'Open-source license'], ['0', 'Runtime — just prompts']],
         platLabel: 'Runs on',
       };
   const PLATFORMS = ['Claude Code', 'Cursor', 'Gemini CLI', 'Copilot', 'ChatGPT'];

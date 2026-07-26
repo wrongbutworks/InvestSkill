@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Site — explicit "no API keys, completely free" messaging: a new **No API Keys, No Cost** section on both homepages (English + 繁體中文) covering API keys, subscriptions, market-data fees, runtime, and license; a `$0 · no API keys` cost badge; a `$0 / No API keys · no fees` hero stat on the landing pages; and a matching note on the Data & Accuracy pages explaining why no key is needed.
+
+### Changed
+- `scripts/site-review.js` — daily QA reports in `qa/` are now capped at a 5-day retention window (`RETENTION_DAYS`); older `site_review_YYYYMMDD.md` files are pruned on each run. `PROJECT-REVIEW.md` is untouched.
+- `.github/workflows/site-review.yml` — stages `qa/` with `git add -A` so pruned reports are committed as deletions alongside the new report. Pruned the existing 19-report backlog down to the last 5 days.
+
 ## [1.10.1] - 2026-07-22
 
 ### Enhanced
