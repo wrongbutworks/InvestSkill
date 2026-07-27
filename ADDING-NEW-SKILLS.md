@@ -560,5 +560,5 @@ Need help?
 ---
 
 **Last Updated**: 2026-07-05  
-**Total Skills**: 25 skill directories (24 advertised frameworks + `report-generator` output tool)  
+**Total Skills**: 27 skill directories (26 advertised frameworks + `report-generator` output tool)  
 **Next Review**: When adding new skill

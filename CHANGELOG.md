@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `scripts/site-review.js` — daily QA reports in `qa/` are now capped at a 5-day retention window (`RETENTION_DAYS`); older `site_review_YYYYMMDD.md` files are pruned on each run. `PROJECT-REVIEW.md` is untouched.
 - `.github/workflows/site-review.yml` — stages `qa/` with `git add -A` so pruned reports are committed as deletions alongside the new report. Pruned the existing 19-report backlog down to the last 5 days.
 
+## [1.11.0] - 2026-07-27
+
+### Added
+- `position-ladder` — new skill: plan and manage a **single position across its life**, the execution layer the catalog was missing. Sets a share-count band (floor / ceiling) from the most restrictive of the concentration, capital, and loss-tolerance caps; builds a staged **entry ladder** (volatility-scaled / fixed-% / support-based / fixed-$ spacing, with equal-share, equal-dollar, or pyramid sizing) and computes capital at full fill, blended average cost, and the drawdown the plan expects to sit through; models the **trim / re-add cycle** that sells the highest-cost lots above blended average cost and buys them back below it, oscillating inside the band. Includes the parts retail versions of this strategy omit: **lot-accounting** (specific-ID vs. broker-default FIFO), **wash-sale flagging** with the 30-day window and the IRA-repurchase trap, holding-period effects, a mandatory **total-return-vs-buy-and-hold** reality check across three price paths (so a lower average cost is never mistaken for a profit), an **underfill** mitigation for names that never pull back, a **thesis-break gate** with a do-not-ladder list (leveraged ETFs, binary-event names, solvency cases), and a 0–10 **Ladder Suitability Score**. Complements `portfolio-review` (which works *across* holdings) by working *inside* one. Brings the advertised framework count to 26.
+
 ## [1.10.1] - 2026-07-22
 
 ### Enhanced

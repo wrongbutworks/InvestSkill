@@ -51,7 +51,7 @@ claude
 /plugin list
 ```
 
-You should see `us-stock-analysis` in the list with 26 available skills.
+You should see `us-stock-analysis` in the list with 27 available skills.
 
 ### Quick Test
 
@@ -133,7 +133,7 @@ plugins/us-stock-analysis/skills/
 ├── financial-report-analyst/SKILL.md
 ├── chart-master/SKILL.md           ← v1.6.0
 ├── full-report/SKILL.md            ← v1.6.0
-└── ... (26 skills total)
+└── ... (27 skills total)
 ```
 
 ### The Signal Block
@@ -1032,9 +1032,39 @@ Real-world investor scenarios showing how to combine multiple skills.
 
 ---
 
+### Workflow G — Manage a Position You Already Own
+
+**Scenario:** You bought a stock at $128, it's now $122, and you want a plan instead of a hunch.
+
+```bash
+# Step 1: Is the thesis still intact? (If not, this is an exit, not a ladder.)
+/us-stock-analysis:stock-eval AVGO
+/us-stock-analysis:bear-case AVGO
+# Look for: has anything been falsified, or is this just price weakness?
+
+# Step 2: Get real support levels to anchor the rungs on
+/us-stock-analysis:technical-analysis AVGO
+# Look for: the support table and ATR — these set rung spacing and depth
+
+# Step 3: Set the ceiling from portfolio concentration, not from conviction
+/us-stock-analysis:portfolio-review
+# Paste holdings — how many shares can this position hold at max?
+
+# Step 4: Build the plan
+/us-stock-analysis:position-ladder AVGO — hold 20 @ $128, now $122, target 60-100 shares
+# Returns: rung table, capital at full fill, trim/re-add cycle, wash-sale flags,
+#          and the total-return-vs-buy-and-hold check
+```
+
+**Read the output honestly:** a lower average cost is not a profit. Check the
+total-return comparison — in a strong rally the trim leg *costs* you money, and the
+plan says so in dollars.
+
+---
+
 ## 5. Cross-AI Usage
 
-InvestSkill works with any AI assistant. The `prompts/` directory contains all 25 analysis frameworks as standalone files.
+InvestSkill works with any AI assistant. The `prompts/` directory contains all 26 analysis frameworks as standalone files.
 
 ### Gemini CLI
 

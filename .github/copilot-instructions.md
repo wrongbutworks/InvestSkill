@@ -1,6 +1,6 @@
 # InvestSkill — GitHub Copilot Setup & Usage Guide
 
-This repository contains 25 professional investment analysis frameworks for US stock markets. When working in this workspace, Copilot automatically loads these analysis methodologies to provide institutional-quality investment analysis.
+This repository contains 26 professional investment analysis frameworks for US stock markets. When working in this workspace, Copilot automatically loads these analysis methodologies to provide institutional-quality investment analysis.
 
 ## Installation & Setup
 
@@ -21,7 +21,7 @@ GitHub Copilot automatically loads this file when you work in the InvestSkill re
 
 3. **Open Copilot Chat** (usually `Ctrl+K` or `Cmd+K`)
    - Copilot automatically loads `copilot-instructions.md`
-   - You now have access to all 25 analysis frameworks
+   - You now have access to all 26 analysis frameworks
 
 ### Verify Setup
 
@@ -34,7 +34,7 @@ If Copilot references the frameworks, setup is complete!
 
 ---
 
-## Available Analysis Frameworks (25 frameworks + 1 output tool)
+## Available Analysis Frameworks (26 frameworks + 1 output tool)
 
 ### Core Stock Analysis (6 frameworks)
 
@@ -64,7 +64,7 @@ If Copilot references the frameworks, setup is complete!
 | Dividend Analysis | `prompts/dividend-analysis.md` | Dividend safety and sustainability |
 | Short Interest | `prompts/short-interest.md` | Squeeze potential and bearish thesis |
 
-### Advanced Analysis (8 frameworks)
+### Advanced Analysis (9 frameworks)
 
 | Framework | File | Best For |
 |-----------|------|----------|
@@ -76,6 +76,7 @@ If Copilot references the frameworks, setup is complete!
 | Stock Screener | `prompts/stock-screener.md` | Multi-ticker ranking across valuation, quality, momentum, sentiment, growth |
 | Catalyst Calendar | `prompts/catalyst-calendar.md` | Forward-looking 90-day event calendar, impact scoring |
 | Bear Case | `prompts/bear-case.md` | One-sided short thesis, downside target, counterevidence to a bull thesis |
+| Position Ladder | `prompts/position-ladder.md` | Staged entry ladder, share-count floor/ceiling, trim/re-add cost-basis cycle, wash-sale flags |
 
 ### Full Research Bundle (2 frameworks)
 
@@ -192,6 +193,9 @@ What's the short squeeze potential in GME? Use the short-interest framework
 
 # Bear case / counterevidence
 Build the bear case against TSLA and give a downside target using the bear-case framework
+
+# Position plan for an existing holding
+I hold 20 AVGO at $128, now $122 — plan a 60–100 share ladder using the position-ladder framework
 
 # Options strategy
 Find bullish option strategies for AAPL earnings using the options-analysis framework
@@ -339,7 +343,7 @@ What's the valuation in the:
 
 ```
 InvestSkill/
-├── prompts/                    # 25 analysis frameworks
+├── prompts/                    # 26 analysis frameworks
 │   ├── stock-eval.md
 │   ├── stock-valuation.md
 │   ├── fundamental-analysis.md
@@ -358,6 +362,7 @@ InvestSkill/
 │   ├── portfolio-review.md
 │   ├── sector-analysis.md
 │   ├── bear-case.md
+│   ├── position-ladder.md
 │   ├── research-bundle.md
 │   ├── result-validator.md
 │   ├── chart-master.md
@@ -408,7 +413,7 @@ Use the stock-eval framework for MSFT, but format as:
 
 ## Project Overview
 
-- **25 Institutional-Quality Frameworks** — all tested and validated
+- **26 Institutional-Quality Frameworks** — all tested and validated
 - **Works with Copilot Chat** — integrated into VS Code and JetBrains IDEs
 - **Universal Prompts** — also work with Gemini CLI, Cursor, and any AI tool
 - **Educational Focus** — for learning institutional analysis methods
@@ -419,7 +424,7 @@ Use the stock-eval framework for MSFT, but format as:
 ## Additional Resources
 
 - **README.md** — Complete setup guide for all platforms (Claude Code, Gemini, Cursor)
-- **prompts/** — All 25 analysis framework files
+- **prompts/** — All 26 analysis framework files
 - **plugins/** — Claude Code plugin integration (optional)
 - **GitHub Issues** — Report problems or request features
 

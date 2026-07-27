@@ -20,7 +20,7 @@
 
 ## What is InvestSkill?
 
-InvestSkill is a collection of **25 structured analysis frameworks** that turn any AI assistant into an institutional-quality investment analyst. There is no runtime — every skill is a prompt that works in Claude Code, Cursor, Gemini CLI, GitHub Copilot, ChatGPT, or any other LLM.
+InvestSkill is a collection of **26 structured analysis frameworks** that turn any AI assistant into an institutional-quality investment analyst. There is no runtime — every skill is a prompt that works in Claude Code, Cursor, Gemini CLI, GitHub Copilot, ChatGPT, or any other LLM.
 
 **Nothing to sign up for, nothing to pay for.** No API key, no data-vendor subscription, no billing setup — you bring the AI assistant you already use (a free tier or a local model works too) and InvestSkill is just markdown. See [No API keys, no cost](#no-api-keys-no-cost).
 
@@ -89,7 +89,7 @@ InvestSkill is **completely free to use** — there is nothing to buy, register,
 
 ---
 
-## The 25 Frameworks
+## The 26 Frameworks
 
 ### Core Stock Analysis
 
@@ -131,6 +131,7 @@ InvestSkill is **completely free to use** — there is nothing to buy, register,
 | `stock-screener` | Multi-ticker ranking across valuation, quality, momentum, sentiment, and growth; leaderboard + top picks + avoid list |
 | `catalyst-calendar` | Forward-looking 90-day event calendar: earnings, macro events, catalysts, impact scoring, event-driven strategies |
 | `bear-case` | Deliberate short-seller red-team: bear thesis, accounting red flags, downside target, thesis-killers (counterevidence for any bull thesis) |
+| `position-ladder` | Staged entry ladder + trim/re-add cycle for a single holding: share-count floor/ceiling, blended cost basis, wash-sale flags, total-return-vs-buy-and-hold check, thesis-break gate |
 
 ### Meta & Output
 
@@ -236,7 +237,7 @@ New to investing, or unsure which skill to reach for? Start here:
 |----------|-------------|
 | [Live Docs Site](https://yennanliu.github.io/InvestSkill/) | Full documentation with dark-theme UI |
 | [Cookbook](https://yennanliu.github.io/InvestSkill/cookbook.html) | Walkthrough examples and use cases |
-| [Skill Reference](https://yennanliu.github.io/InvestSkill/skills.html) | All 25 frameworks, one browsable page each |
+| [Skill Reference](https://yennanliu.github.io/InvestSkill/skills.html) | All 26 frameworks, one browsable page each |
 | [Claude Code Guide](README-claude-code.md) | Plugin install + all slash commands |
 | [Cursor Guide](README-cursor.md) | Auto-loading rules + `@prompts/` usage |
 | [Gemini CLI Guide](README-gemini.md) | File references + multi-framework chains |
@@ -260,7 +261,7 @@ See [ADDING-NEW-SKILLS.md](ADDING-NEW-SKILLS.md) for the full process. The short
 
 ---
 
-**Version:** 1.10.0 · **Skills:** 25 · **Platforms:** 7 · **License:** MIT · **Tests:** 294+ passing
+**Version:** 1.11.0 · **Skills:** 26 · **Platforms:** 7 · **License:** MIT · **Tests:** 294+ passing
 
 ---
 

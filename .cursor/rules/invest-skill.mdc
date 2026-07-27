@@ -6,7 +6,7 @@ alwaysApply: true
 
 # InvestSkill — Cursor Rules & Setup Guide
 
-This is the InvestSkill repository — a collection of 25 professional investment analysis frameworks for US stocks. These rules automatically apply when you work in this project.
+This is the InvestSkill repository — a collection of 26 professional investment analysis frameworks for US stocks. These rules automatically apply when you work in this project.
 
 ## Installation & Setup
 
@@ -27,7 +27,7 @@ Cursor automatically loads this file when you open the InvestSkill repository. *
 
 3. **Open AI Chat** (usually `Cmd+K`)
    - Cursor automatically loads the investment analysis rules
-   - All 25 frameworks are immediately available
+   - All 26 frameworks are immediately available
 
 ### Verify Setup
 
@@ -40,7 +40,7 @@ If the framework loads, setup is complete!
 
 ---
 
-## Available Analysis Frameworks (25 frameworks + 1 output tool)
+## Available Analysis Frameworks (26 frameworks + 1 output tool)
 
 ### Core Stock Analysis (6 frameworks)
 
@@ -70,7 +70,7 @@ If the framework loads, setup is complete!
 | Dividend Analysis | `@prompts/dividend-analysis.md` | Dividend safety, yield trap detection |
 | Short Interest | `@prompts/short-interest.md` | Short squeeze scoring, thesis evaluation |
 
-### Advanced Analysis (8 frameworks)
+### Advanced Analysis (9 frameworks)
 
 | Framework | File | Best For |
 |-----------|------|----------|
@@ -82,6 +82,7 @@ If the framework loads, setup is complete!
 | Stock Screener | `@prompts/stock-screener.md` | Multi-ticker ranking across valuation, quality, momentum, sentiment, growth |
 | Catalyst Calendar | `@prompts/catalyst-calendar.md` | Forward-looking 90-day event calendar, impact scoring |
 | Bear Case | `@prompts/bear-case.md` | One-sided short thesis, downside target, counterevidence to a bull thesis |
+| Position Ladder | `@prompts/position-ladder.md` | Staged entry ladder, share-count floor/ceiling, trim/re-add cost-basis cycle, wash-sale flags |
 
 ### Full Research Bundle (2 frameworks)
 
@@ -202,6 +203,9 @@ TSLA: 10%
 
 # Bear case / counterevidence
 @prompts/bear-case.md Build the bear case against TSLA and give a downside target
+
+# Position plan for an existing holding
+@prompts/position-ladder.md I hold 20 AVGO at $128, now $122 — plan a 60–100 share ladder
 
 # Options strategy
 @prompts/options-analysis.md Find bullish options strategies for AAPL earnings
@@ -382,7 +386,7 @@ InvestSkill/
 │       └── invest-skill.mdc      # This file (auto-loaded)
 ├── .github/
 │   └── copilot-instructions.md   # GitHub Copilot integration
-├── prompts/                       # 25 frameworks
+├── prompts/                       # 26 frameworks
 │   ├── stock-eval.md
 │   ├── stock-valuation.md
 │   ├── fundamental-analysis.md
@@ -401,6 +405,7 @@ InvestSkill/
 │   ├── portfolio-review.md
 │   ├── sector-analysis.md
 │   ├── bear-case.md
+│   ├── position-ladder.md
 │   ├── research-bundle.md
 │   ├── result-validator.md
 │   ├── chart-master.md
@@ -537,7 +542,7 @@ Analyze AAPL with:
 - **README.md** — Full setup for Claude Code, Gemini, Copilot, Cursor
 - **GEMINI.md** — Detailed Gemini CLI guide
 - **.github/copilot-instructions.md** — GitHub Copilot integration guide
-- **prompts/** — All 25 framework files
+- **prompts/** — All 26 framework files
 - **GitHub Issues** — Report problems or request features
 
 ---
