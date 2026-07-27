@@ -8,9 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Cookbook — **seven live workflow runs (§3.12–3.18)** added to the demo section of `COOKBOOK.md` and `COOKBOOK-zh-TW.md`. Each of Workflows A–G from §4 is executed end-to-end against a real US-listed stock using live market data (run date 2026-07-27, prices as of the 2026-07-24 close), with per-step output, the arithmetic behind each conclusion, a signal block, and cited sources: **A** pre-earnings deep dive on AAPL (into the 30 Jul print — implied move ±5.38%, price 0.6% off the 52-week high → trim); **B** value screen on PFE (7.01% yield costs 103.4% of free cash flow against $17–18B of contractual LOE → value trap); **C** dividend sleeve JNJ/ABBV/PG (ABBV's 336% *accounting* payout is 61.2% on *cash* — plus a 2.52% blended yield and 67% healthcare concentration); **D** swing setup on UPST (31.44% of float short, but 0 of 3 technical confirmations and 1.17:1 reward/risk → **no trade**); **E** full memo on NVDA (reverse DCF: today's $4.97T EV requires ~35% year-1 FCF growth at a 12% WACC); **F** sector rotation in the July 2026 regime (Fed on hold at 3.50–3.75%, core CPI 2.6%, curve +78 bp — XOM's macro call is already in estimates at 12.58× forward, JPM's is not); **G** position ladder on AVGO (5 rungs anchored on the 200-day MA and 1-ATR spacing, wash-sale window flagged, and the trim leg shown to cost $1,300 in a rally).
+
 - Site — explicit "no API keys, completely free" messaging: a new **No API Keys, No Cost** section on both homepages (English + 繁體中文) covering API keys, subscriptions, market-data fees, runtime, and license; a `$0 · no API keys` cost badge; a `$0 / No API keys · no fees` hero stat on the landing pages; and a matching note on the Data & Accuracy pages explaining why no key is needed.
 
 ### Changed
+- Cookbook §4 — recipe tickers refreshed so the worked examples stay accurate: Workflow B now uses `PFE` (Intel no longer screens as a value candidate), Workflow D uses `UPST`, and Workflow A cites `Q2-2026`. Each workflow now links to its live run in §3.
 - `scripts/site-review.js` — daily QA reports in `qa/` are now capped at a 5-day retention window (`RETENTION_DAYS`); older `site_review_YYYYMMDD.md` files are pruned on each run. `PROJECT-REVIEW.md` is untouched.
 - `.github/workflows/site-review.yml` — stages `qa/` with `git add -A` so pruned reports are committed as deletions alongside the new report. Pruned the existing 19-report backlog down to the last 5 days.
 
