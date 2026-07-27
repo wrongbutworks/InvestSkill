@@ -51,7 +51,7 @@ claude
 /plugin list
 ```
 
-確認在清單中看到 `us-stock-analysis`，並顯示 26 個可用技能，即表示安裝成功。
+確認在清單中看到 `us-stock-analysis`，並顯示 27 個可用技能，即表示安裝成功。
 
 ### 快速測試
 
@@ -133,7 +133,7 @@ plugins/us-stock-analysis/skills/
 ├── financial-report-analyst/SKILL.md
 ├── chart-master/SKILL.md           ← v1.6.0 新增
 ├── full-report/SKILL.md            ← v1.6.0 新增
-└── ...（共 26 個技能）
+└── ...（共 27 個技能）
 ```
 
 ### 標準訊號區塊
@@ -956,9 +956,38 @@ AAPL — 6 個月股價（八月至二月）
 
 ---
 
+### 工作流程 G — 管理已持有的部位
+
+**情境：** 你在 $128 買進，現價 $122，你需要一個計畫，而不是憑感覺攤平。
+
+```bash
+# 步驟 1：投資論點還成立嗎？（若已破損，該做的是出場，不是加碼）
+/us-stock-analysis:stock-eval AVGO
+/us-stock-analysis:bear-case AVGO
+# 觀察：是基本面被證偽，還是單純的股價弱勢？
+
+# 步驟 2：取得真實的支撐位，用來設定加碼階梯
+/us-stock-analysis:technical-analysis AVGO
+# 觀察：支撐位表與 ATR——決定階梯間距與深度
+
+# 步驟 3：用投組集中度決定持股上限，而不是用信心決定
+/us-stock-analysis:portfolio-review
+# 貼上持股——這檔最多能放多少股？
+
+# 步驟 4：產出計畫
+/us-stock-analysis:position-ladder AVGO — 持有 20 股成本 $128，現價 $122，目標 60-100 股
+# 輸出：階梯表、滿倉所需資金、賣高成本／低於均價買回的循環、洗售規則警示，
+#       以及總報酬 vs. 買進持有的對照
+```
+
+**誠實解讀輸出：** 平均成本下降不等於賺錢。務必看總報酬對照——在強勢上漲時，
+賣出高成本批次那一腿其實**讓你少賺**，計畫會直接把金額算給你看。
+
+---
+
 ## 5. 跨 AI 工具使用
 
-InvestSkill 適用於任何 AI 助手。`prompts/` 目錄包含所有 25 個分析框架的獨立檔案。
+InvestSkill 適用於任何 AI 助手。`prompts/` 目錄包含所有 26 個分析框架的獨立檔案。
 
 ### Gemini CLI
 

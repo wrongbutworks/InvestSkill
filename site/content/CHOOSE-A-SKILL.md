@@ -1,6 +1,6 @@
 # Choose a Skill
 
-> 25 frameworks is a lot. This page maps your *goal* to the right skill — and clears up the overlaps people ask about most. New here? Start with `stock-eval`; it touches quality, value, and risk in one pass.
+> 26 frameworks is a lot. This page maps your *goal* to the right skill — and clears up the overlaps people ask about most. New here? Start with `stock-eval`; it touches quality, value, and risk in one pass.
 
 ---
 
@@ -22,6 +22,7 @@
 | Track *insider* buying/selling | `insider-trading` | `short-interest` |
 | Gauge *short-squeeze* potential | `short-interest` | `technical-analysis` |
 | Stress-test a *bull thesis* (the downside case) | `bear-case` | `stock-eval` |
+| Plan *how to build a position* (or manage one I'm underwater on) | `position-ladder` | `technical-analysis` |
 | Pick an *options* strategy | `options-analysis` | `technical-analysis` |
 | Read the *macro* environment | `economics-analysis` | `sector-analysis` |
 | Find *sector rotation* opportunities | `sector-analysis` | `stock-eval` |
@@ -58,6 +59,10 @@ What's your starting point?
 │
 ├─ "I'm trading a setup"
 │     └─ short-interest ──► technical-analysis ──► options-analysis ──► chart-master
+│
+├─ "I already own it — how do I build / manage the position?"
+│     └─ stock-eval (thesis still good?) ──► technical-analysis (support levels)
+│           └─ position-ladder (rungs, share-count band, trim/re-add cycle)
 │
 └─ "I want the whole package, exported"
       └─ full-report  (runs everything, saves an HTML file)

@@ -4,7 +4,7 @@
 
 ### 美股市場專業投資分析工具
 
-**25 個 AI 驅動分析框架 · 全平台支援 · 完全開源**
+**26 個 AI 驅動分析框架 · 全平台支援 · 完全開源**
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/yennanliu/InvestSkill?style=for-the-badge&color=gold)](https://github.com/yennanliu/InvestSkill/stargazers)
@@ -19,7 +19,7 @@
 
 ## 🎯 什麼是 InvestSkill？
 
-InvestSkill 是企業級投資分析工具包，為各 AI 平台帶來機構級分析框架。透過 25 個完整框架進行專業股票分析——無需金融執照，無需 API 費用。
+InvestSkill 是企業級投資分析工具包，為各 AI 平台帶來機構級分析框架。透過 26 個完整框架進行專業股票分析——無需金融執照，無需 API 費用。
 
 > **適合用於**：投資研究 · 盡職調查 · 投資組合管理 · 金融教育 · 股票評估
 
@@ -36,11 +36,11 @@ InvestSkill 是企業級投資分析工具包，為各 AI 平台帶來機構級�
   <tr>
     <td width="50%">
 
-### ✨ 25 個專業框架
+### ✨ 26 個專業框架
 - 6 個核心分析框架
 - 3 個財務報告分析
 - 4 個市場監控工具
-- 8 個進階研究工具
+- 9 個進階研究工具
 - 5 個自動化元技能與輸出（含 report-generator 輸出工具）
 
     </td>
@@ -138,16 +138,19 @@ gemini
 
 ---
 
-## 📋 25 個框架總覽
+## 📋 26 個框架總覽
 
 | 類別 | 框架 | 用途 |
 |------|------|------|
 | **核心分析** (6) | stock-eval · fundamental-analysis · technical-analysis · economics-analysis · dcf-valuation · stock-valuation | 全方位股票評估 |
 | **財務報告** (3) | financial-report-analyst · 10k-digest · earnings-call-analysis | 深度文件分析 |
 | **市場監控** (4) | insider-trading · institutional-ownership · dividend-analysis · short-interest | 活動與情緒追蹤 |
-| **進階分析** (8) | competitor-analysis · **industry-map** · options-analysis · portfolio-review · sector-analysis · **stock-screener** · **catalyst-calendar** · **bear-case** | 專項研究角度 |
+| **進階分析** (9) | competitor-analysis · **industry-map** · options-analysis · portfolio-review · sector-analysis · **stock-screener** · **catalyst-calendar** · **bear-case** · **position-ladder** | 專項研究角度 |
 | **元技能與輸出** (5) | research-bundle · full-report · report-generator · chart-master · result-validator | 自動化與綜合輸出 |
 
+> **v1.11.0 新功能：**
+> - `position-ladder`（分批建倉與降成本）— 單一持股的執行計畫：先控倉（設定持股下限／上限與集中度上限），再分批布局（依 ATR／百分比／支撐位設定加碼階梯），並在股價高於平均成本時賣出成本最高的批次、低於平均成本時再買回，於區間內循環降低整體成本。內含稅務批次選擇（FIFO vs. 指定批次）、洗售規則（wash sale）警示、總報酬 vs. 買進持有的誠實對照，以及「論點破損就停止加碼」的出場閘門
+>
 > **v1.10.0 新功能：**
 > - `industry-map`（產業地圖）— 以有向圖繪製產業供應／價值鏈（上游→下游）：定位公司所處環節、找出瓶頸卡位（收費站）與利潤池、預判價值移轉方向，並產出各層級的二階投資點子
 >
@@ -321,7 +324,7 @@ Copilot 會自動載入 `.github/copilot-instructions.md`
 
 | 功能 | InvestSkill | 通用 AI |
 |------|------------|---------|
-| **25 個精選框架** | ✅ 內建 | ❌ 需手動設定 |
+| **26 個精選框架** | ✅ 內建 | ❌ 需手動設定 |
 | **信號區塊** | ✅ 標準化格式 | ❌ 格式不一致 |
 | **全平台支援** | ✅ 原生支援 | ❌ 需要變通方案 |
 | **零 API 費用** | ✅ 免費 | ❌ 需付費 API |
@@ -333,9 +336,9 @@ Copilot 會自動載入 `.github/copilot-instructions.md`
 
 ## 📊 專案狀態
 
-**目前版本：** 1.10.0
-**技能框架：** 25 個
-**通用提示詞：** 26 個
+**目前版本：** 1.11.0
+**技能框架：** 26 個
+**通用提示詞：** 27 個
 **支援平台：** 6 個
 **測試數量：** 294+ 個（全數通過）✅
 
