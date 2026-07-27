@@ -4,6 +4,9 @@
 
 **Professional investment analysis frameworks for US stocks — works on every AI platform**
 
+**No API keys · No subscriptions · 100% free**
+
+[![Cost: $0](https://img.shields.io/badge/cost-%240%20%C2%B7%20no%20API%20keys-22c55e?style=flat-square)](#no-api-keys-no-cost)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/yennanliu/InvestSkill?style=flat-square&color=gold)](https://github.com/yennanliu/InvestSkill/stargazers)
 [![Release](https://img.shields.io/github/v/release/yennanliu/InvestSkill?style=flat-square&color=22c55e)](https://github.com/yennanliu/InvestSkill/releases)
@@ -18,6 +21,8 @@
 ## What is InvestSkill?
 
 InvestSkill is a collection of **26 structured analysis frameworks** that turn any AI assistant into an institutional-quality investment analyst. There is no runtime — every skill is a prompt that works in Claude Code, Cursor, Gemini CLI, GitHub Copilot, ChatGPT, or any other LLM.
+
+**Nothing to sign up for, nothing to pay for.** No API key, no data-vendor subscription, no billing setup — you bring the AI assistant you already use (a free tier or a local model works too) and InvestSkill is just markdown. See [No API keys, no cost](#no-api-keys-no-cost).
 
 ```
 Ask your AI:  "Evaluate AAPL using the stock-eval framework"
@@ -63,6 +68,24 @@ cat prompts/stock-eval.md | pbcopy
 ```
 
 > Full platform guides: [Claude Code](README-claude-code.md) · [Cursor](README-cursor.md) · [Gemini CLI](README-gemini.md) · [Ollama](README-ollama.md)
+
+---
+
+## No API Keys, No Cost
+
+InvestSkill is **completely free to use** — there is nothing to buy, register, or configure.
+
+| | |
+|---|---|
+| **API keys** | **None.** No OpenAI / Anthropic / Alpha Vantage / Polygon key. The plugin never calls an endpoint — there is no code to call one with. |
+| **Subscriptions** | **None.** No paid tier, no seats, no usage metering, no account. |
+| **Market-data fees** | **None.** No Bloomberg, no paid data feed. The AI reads public filings and free sources — or you paste the numbers in yourself. |
+| **Install / runtime** | **None.** Every skill is a plain markdown prompt. Nothing runs on your machine, so nothing phones home. |
+| **License** | **MIT.** Free to use, fork, and modify — for personal or commercial work. |
+
+**The only thing you need is an AI assistant you already have.** That can be a paid plan (Claude Code, Cursor, Copilot), a free tier (ChatGPT, Gemini, Claude.ai), or a fully offline local model via [Ollama](README-ollama.md) — in which case the total cost of running every framework is literally zero.
+
+> Because there's no API, there's also no telemetry: InvestSkill never sees your tickers, your holdings, or your analysis. See [Data & Accuracy](site/content/DATA-AND-ACCURACY.md) for where the numbers actually come from.
 
 ---
 
