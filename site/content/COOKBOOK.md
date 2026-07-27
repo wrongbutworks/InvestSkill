@@ -1299,10 +1299,15 @@ Does the rest of the workflow confirm?
 **Commands run:**
 
 ```bash
-/us-stock-analysis:short-interest UPST
-/us-stock-analysis:technical-analysis UPST
-/us-stock-analysis:options-analysis UPST
-/us-stock-analysis:chart-master UPST --type price-volume
+/us-stock-analysis:short-interest UPST      # step 1 — ran
+/us-stock-analysis:technical-analysis UPST  # step 2 — ran, and FAILED the gate
+
+# Steps 3 and 4 were NOT run. Workflow D gates the trade on step 2, and step 2
+# came back with 0 of 3 confirmations. Pricing options and drawing a chart for a
+# setup that has already been rejected is wasted work — and reading them anyway
+# is how a rejected setup talks its way back into the book.
+# /us-stock-analysis:options-analysis UPST
+# /us-stock-analysis:chart-master UPST --type price-volume
 ```
 
 **Step 1 — Short interest: the ingredients are real**
@@ -1345,7 +1350,11 @@ Recipe asked for:   price above the 20-day MA  ❌ (15.3% below it)
 0 of 3 technical confirmations present.
 ```
 
-**Step 3 — Risk / reward, priced honestly**
+**Stopping here — and the risk / reward that confirms it**
+
+The remaining two commands were skipped on purpose (see above). Before discarding
+the idea, the setup was priced anyway, to check that the gate was not being
+over-strict:
 
 ```
 Entry (spot)                 $26.93
@@ -1712,9 +1721,23 @@ rungs closer than ~1 ATR just fill on noise.
 ```
 PORTFOLIO-REVIEW
   Max single-position weight (policy)     8%
-  → At $381.92, 100 shares = $38,192 of exposure.
-  → That caps this position at 100 shares for any portfolio ≥ $477K.
-  The SHARE CEILING IS 100. Conviction does not get a vote here.
+  At $381.92, the 8% cap converts to a different share ceiling for every
+  portfolio size — so the ceiling is a function of YOUR account, not of AVGO:
+
+    Portfolio     8% cap      Shares affordable    Binding ceiling
+    ─────────────────────────────────────────────────────────────────
+    $400K         $32,000            83            83  ← policy binds
+    $477.4K       $38,192           100           100  ← policy binds exactly
+    $600K         $48,000           125           100  ← target band binds
+
+  The 100-share plan below therefore REQUIRES a portfolio of at least $477.4K
+  (= 100 × $381.92 ÷ 0.08). On a smaller account the policy sets a lower
+  ceiling and the ladder must be rebuilt to that number — the deepest rungs
+  get dropped, not squeezed in.
+
+  This run assumes a $500K portfolio → 8% = $40,000 → 104 shares affordable,
+  so the binding ceiling is the 100-share top of the target band.
+  Conviction does not get a vote in either case.
 ```
 
 **Step 4 — The ladder**
