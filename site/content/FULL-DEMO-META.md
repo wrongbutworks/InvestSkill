@@ -120,9 +120,9 @@ Meta grew revenue **22% to $200.97 billion** and operating income **20% to $83.2
 | Operating cash flow | $115,800 M | $91,328 M | +26.8% |
 | Capex (incl. finance-lease principal) | **$72,215 M** | $39,225 M | **+84.1%** |
 | Free cash flow | **$43,585 M** | $52,103 M | **−16.3%** |
-| Cash + marketable securities | $81,590 M | $77,815 M | +4.9% |
+| Cash + marketable securities | $81,592 M | $77,815 M | +4.9% |
 | Long-term debt | $58,744 M | $28,826 M | **+103.8%** |
-| Net cash position | **$22,846 M** | $48,989 M | **−53.4%** |
+| Net cash position | **$22,848 M** | $48,989 M | **−53.4%** |
 | Property & equipment, net | $176,400 M | $121,346 M | +45.4% |
 | Total assets | $366,021 M | $276,054 M | +32.6% |
 | Stockholders' equity | $217,243 M | $182,637 M | +18.9% |
@@ -204,7 +204,7 @@ PAGE   SECTION                              VALUE   WHY
 
 ### Line-by-line, and what I think of each
 
-**Revenue +22.2%.** Two years in a row at exactly 22%. At $201 billion of base, that is **$36.5 billion of *incremental* revenue in a single year** — more than Meta's entire annual revenue as recently as 2013. Compounding at 22% *off a $165 billion base* is the rarest thing in this filing. The composition matters:
+**Revenue +22.2%.** Two years in a row at exactly 22%. At $201 billion of base, that is **$36.5 billion of *incremental* revenue in a single year** — more than Meta's entire annual revenue as recently as 2016 ($27.6 billion). Compounding at 22% *off a $165 billion base* is the rarest thing in this filing. The composition matters:
 
 > *"Advertising revenue in 2025 increased $35.54 billion, or 22%, compared to 2024 due to increases in ad impressions delivered and average price per ad. In 2025, ad impressions delivered increased by 12% ... the average price per ad increased by 9%."* — Item 7, p. 73
 
@@ -234,7 +234,7 @@ One caution the filing supplies itself: impressions grew *"especially in Asia-Pa
 
 > *"On July 4, 2025, the One Big Beautiful Bill Act (OBBBA) was enacted ... As a result, we recorded a **$15.93 billion charge** in the third quarter of 2025, of which **$14.03 billion was a valuation allowance** against our U.S. federal deferred tax assets."* — Item 7, p. 76 / Note 14, p. 121
 
-The statutory reconciliation (Note 14, p. 121) makes the mechanics explicit:
+The statutory reconciliation (Note 14, p. 122) makes the mechanics explicit:
 
 > | | $M | % |
 > |---|---|---|
@@ -301,9 +301,9 @@ The statutory reconciliation (Note 14, p. 121) makes the mechanics explicit:
 
 | | 2025 | 2024 |
 |---|---|---|
-| Cash + marketable securities | $81,590 M | $77,815 M |
+| Cash + marketable securities | $81,592 M | $77,815 M |
 | Long-term debt | $58,744 M | $28,826 M |
-| **Net cash** | **$22,846 M** | **$48,989 M** |
+| **Net cash** | **$22,848 M** | **$48,989 M** |
 
 Net cash **halved in one year**. Meta issued **$30 billion of senior unsecured notes in November 2025** (Note 10, p. 111) — the largest raise in its history, in six series maturing 2030–2065, with no financial covenants. Total face debt is now $59 billion against $57.22 billion of fair value.
 
@@ -448,7 +448,7 @@ Meta discloses the impact three times, which is more transparency than most comp
 
 | | Amount | As % of |
 |---|---|---|
-| Depreciation avoided | $2.92 B | 16.2% of total D&A |
+| Depreciation avoided | $2.92 B | 16.2% of the $18.00 B depreciation expense *(Note 6, p. 107)* |
 | Net income benefit | $2.59 B | **4.3% of net income** |
 | Diluted EPS benefit | $1.00 | **4.3% of $23.49** |
 
@@ -474,7 +474,7 @@ REVENUE ($B)                                    each █ ≈ $10B
 2024   $164.5  ████████████████▍             +22.0%
 2025   $201.0  ████████████████████          +22.2%
 
-INCOME FROM OPERATIONS ($B)
+INCOME FROM OPERATIONS ($B)                     each █ ≈ $5B
 2023    $46.8  █████████▍                    34.7% margin
 2024    $69.4  █████████████▉                42.2% margin
 2025    $83.3  ████████████████▋             41.4% margin
@@ -697,7 +697,7 @@ The BOTTOM of the capex guidance equals ALL of 2025's operating cash flow.
 | $135 B (+17%) | +$20 B | +$10 B | **$0 B** |
 | $147 B (+27%) | +$32 B | +$22 B | +$12 B |
 
-**Meta needs operating cash flow to grow roughly 17% just to break even on free cash flow at the midpoint of its own guidance.** It grew 27% in 2025 — but 2025's OCF was helped by an $18.7 billion deferred-tax swing that does not repeat in the same form. **My honest expectation: 2026 free cash flow lands somewhere between −$10 billion and +$20 billion.** For the first time since 2011, Meta may not generate meaningful free cash flow. That fact is knowable today, from this filing, and it is not what "Meta trades at 22× earnings" leads you to expect.
+**Meta needs operating cash flow to grow roughly 8% to break even on free cash flow at the midpoint of its own capex guidance, and roughly 17% to break even at the top of it.** It grew 27% in 2025 — but 2025's OCF was helped by an $18.7 billion deferred-tax swing that does not repeat in the same form. **My honest expectation: 2026 free cash flow lands somewhere between −$10 billion and +$20 billion.** For the first time since 2011, Meta may not generate meaningful free cash flow. That fact is knowable today, from this filing, and it is not what "Meta trades at 22× earnings" leads you to expect.
 
 ### FY2026 EPS, the other side of the coin
 
@@ -726,8 +726,8 @@ Every one of these dates is disclosed in the 10-K itself. No external sourcing.
 | **Throughout 2026** | $30.63 B of contractual commitments due | Note 11, p. 112 | Near-term cash call |
 | **2026** | EU DSA final decision possible after Oct 2025 preliminary findings | Note 11, p. 117 | DSA fines scale to global revenue |
 | **Jul 16, 2026** | Summary judgment hearing, *Kadrey v. Meta* remaining copyright claim | Note 11, p. 117 | Meta already won on fair use (Jun 2025) |
-| **Sep 8, 2026** | **New Mexico AG trial begins** | Note 11, p. 112 | First full trial on youth-safety claims |
-| **Jan 1, 2026** ✅ *occurred* | +55 M Class A shares added to 2025 Equity Incentive Plan | Note 12, p. 119 | Ongoing dilution mechanic |
+| **Sep 8, 2026** | **New Mexico AG trial begins** | Note 11, p. 113 | First full trial on youth-safety claims |
+| **Jan 1, 2026** ✅ *occurred* | +55 M Class A shares added to 2025 Equity Incentive Plan | Note 12, p. 120 | Ongoing dilution mechanic |
 | **2027** | Trial in French media unfair-competition claim; UK CAT trial Sept 2027 | Note 11, pp. 115–116 | European competition tail |
 | **Mid-2027** | Additional AI-copyright cases expected to reach trial | Note 11, p. 117 | Training-data liability |
 | **2027–2030** | $103.77 B of signed leases commence | Note 7, p. 109 | Obligations move onto the balance sheet |
@@ -755,7 +755,7 @@ The second company is an infrastructure build the size of a national utility pro
 
 **1. The reported 2025 numbers are misleading in *both* directions, and they cancel out badly.** Net income fell 3% — that is a tax-accounting artifact; underlying EPS grew 24%. Operating cash flow grew 27% — that is flattered by the mirror image of the same tax item and by a useful-life change worth $1.00 of EPS. **The truest single number in the filing is free cash flow of $43.6 billion, down 16%, at a 21.7% margin versus 31.7% a year ago.** That number has no adjustments and no story attached. It is what the business actually produced for owners.
 
-**2. The balance sheet no longer describes the company.** $148.8 billion of recognized liabilities against roughly $285 billion of additional committed and contingent obligations. Every conventional leverage metric on Meta is now wrong by a wide margin. If you run screens, Meta will look like a fortress; it is not one any more. It is a well-capitalized company with an enormous forward spending commitment.
+**2. The balance sheet no longer describes the company.** $148.8 billion of recognized liabilities against roughly $286 billion of additional committed and contingent obligations. Every conventional leverage metric on Meta is now wrong by a wide margin. If you run screens, Meta will look like a fortress; it is not one any more. It is a well-capitalized company with an enormous forward spending commitment.
 
 **3. Management is telling you where its conviction is — through actions, not adjectives.** They raised $30 billion of debt. They stopped buying back stock in Q4 while $25 billion of authorization sat unused. They extended asset lives at the exact moment depreciation was about to explode. They put "superintelligence" in Item 1 and cut "metaverse" mentions in half. They guided Reality Labs losses flat for the first time ever. **Read together, these are the moves of a management team redirecting every available dollar toward AI infrastructure and being unusually honest that they cannot promise it will work.**
 
@@ -830,7 +830,7 @@ The thing that would change my mind fastest is not a revenue number. It is **the
 
 **Bull case in one line:** the best advertising business ever built is compounding at 22% with accelerating monetization and a tax rate about to halve, and it is self-funding an option on the most important technology of the decade.
 
-**Bear case in one line:** an asset-light 32% free-cash-flow-margin business converted itself, in eighteen months, into a 22%-and-falling free-cash-flow-margin business with $285 billion of off-balance-sheet obligations, in exchange for a return the filing itself declines to promise.
+**Bear case in one line:** an asset-light 32% free-cash-flow-margin business converted itself, in eighteen months, into a 22%-and-falling free-cash-flow-margin business with $286 billion of off-balance-sheet obligations, in exchange for a return the filing itself declines to promise.
 
 **Net read:** both are true. The price at the filing date already contained both. That is what a HOLD looks like.
 
