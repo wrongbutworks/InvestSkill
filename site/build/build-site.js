@@ -65,6 +65,7 @@ const NAV = {
       title: 'Demo',
       links: [
         { label: 'Demo Overview',       href: 'full-demo.html',       page: 'full-demo' },
+        { label: 'META 10-K Deep Dive', href: 'full-demo-meta.html',  page: 'full-demo-meta' },
         { label: 'NVDA 10-K Deep Dive', href: 'full-demo-nvda.html',  page: 'full-demo-nvda' },
         { label: 'AMD 10-K (繁體中文)', href: 'full-demo-amd.html',   page: 'full-demo-amd' },
         { label: 'PLTR (English)',      href: 'full-demo-pltr.html',  page: 'full-demo-pltr' },
@@ -125,6 +126,7 @@ const NAV = {
       links: [
         { label: 'AMD 10-K 深度解析',  href: 'full-demo-amd.html',   page: 'full-demo-amd' },
         { label: 'RKLB 完整示範',      href: 'full-demo-rklb.html',  page: 'full-demo-rklb' },
+        { label: 'META 10-K（英文）',  href: 'full-demo-meta.html',  page: 'full-demo-meta' },
         { label: 'NVDA 10-K（英文）',  href: 'full-demo-nvda.html',  page: 'full-demo-nvda' },
         { label: '示範總覽（英文）',   href: 'full-demo.html',       page: 'full-demo' },
         { label: 'PLTR（英文）',       href: 'full-demo-pltr.html',  page: 'full-demo-pltr' },
@@ -205,6 +207,7 @@ const MD_TO_HTML = {
   'FULL-DEMO-RKLB.md':   'full-demo-rklb.html',
   'FULL-DEMO-NVDA.md':   'full-demo-nvda.html',
   'FULL-DEMO-AMD.md':    'full-demo-amd.html',
+  'FULL-DEMO-META.md':   'full-demo-meta.html',
   'CONCEPTS-zh-TW.md':       'concepts-zh-tw.html',
   'GLOSSARY-zh-TW.md':       'glossary-zh-tw.html',
   'CHOOSE-A-SKILL-zh-TW.md': 'choose-a-skill-zh-tw.html',
@@ -235,7 +238,7 @@ const MD_TO_HTML = {
 const SERVED = new Set(['index.html','cookbook.html','cookbook-zh-tw.html',
   'contributing.html','changelog.html','zh-tw.html','style.css','main.js',
   'concepts.html','glossary.html','choose-a-skill.html','use-cases.html',
-  'data-and-accuracy.html','skills.html','full-demo.html','full-demo-pltr.html','full-demo-rklb.html','full-demo-nvda.html','full-demo-amd.html',
+  'data-and-accuracy.html','skills.html','full-demo.html','full-demo-pltr.html','full-demo-rklb.html','full-demo-nvda.html','full-demo-amd.html','full-demo-meta.html',
   'concepts-zh-tw.html','glossary-zh-tw.html','choose-a-skill-zh-tw.html',
   'use-cases-zh-tw.html','data-and-accuracy-zh-tw.html',
   'learning.html','learning-foundations.html','learning-statements.html',
@@ -453,7 +456,14 @@ const PAGES = [
     outFile: 'full-demo.html',
     srcFile: 'site/content/FULL-DEMO.md',
     title: 'Demo Overview',
-    subtitle: 'All-skills analysis demos: NVDA 10-K deep dive · PLTR (English) · RKLB (繁體中文)',
+    subtitle: 'All-skills analysis demos: META & NVDA 10-K deep dives · PLTR (English) · AMD & RKLB (繁體中文)',
+  },
+  {
+    key: 'full-demo-meta',
+    outFile: 'full-demo-meta.html',
+    srcFile: 'site/content/FULL-DEMO-META.md',
+    title: 'META 10-K Deep Dive',
+    subtitle: 'Meta Platforms FY2025 annual report — a nine-skill walkthrough of one filing (English)',
   },
   {
     key: 'full-demo-nvda',
