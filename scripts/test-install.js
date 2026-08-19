@@ -298,13 +298,14 @@ process.on('exit', () => {
 });
 
 /** Build a `<prefix>/…` tarball so --strip-components=1 lands on the contents. */
-function buildFixture(name, { prompts = true, skills = true } = {}) {
+function buildFixture(name, { prompts = true, skills = true, emptyPrompts = false } = {}) {
   const stage = path.join(FIXTURES, `${name}-stage`);
   const top = path.join(stage, 'InvestSkill-fixture');
   fs.rmSync(stage, { recursive: true, force: true });
   fs.mkdirSync(top, { recursive: true });
 
-  if (prompts) fs.cpSync(PROMPTS_DIR, path.join(top, 'prompts'), { recursive: true });
+  if (emptyPrompts) fs.mkdirSync(path.join(top, 'prompts'), { recursive: true });
+  else if (prompts) fs.cpSync(PROMPTS_DIR, path.join(top, 'prompts'), { recursive: true });
   if (skills) {
     fs.cpSync(SKILLS_DIR, path.join(top, 'plugins/us-stock-analysis/skills'), { recursive: true });
   }
@@ -320,7 +321,8 @@ function buildFixture(name, { prompts = true, skills = true } = {}) {
 const FIXTURE_FULL = buildFixture('full');
 const FIXTURE_NO_PROMPTS = buildFixture('no-prompts', { prompts: false });
 const FIXTURE_NO_SKILLS = buildFixture('no-skills', { skills: false });
-pass('Fixtures — built full / no-prompts / no-skills tarballs from the working tree');
+const FIXTURE_EMPTY_PROMPTS = buildFixture('empty-prompts', { emptyPrompts: true });
+pass('Fixtures — built full / no-prompts / no-skills / empty-prompts tarballs from the working tree');
 
 // The curl double: serves $FAKE_CURL_TARBALL for the codeload URL, logs every
 // invocation, and fails like curl would when $FAKE_CURL_FAIL is set.
@@ -702,6 +704,18 @@ section('10. Behaviour — Failure Modes');
   check(r.status !== 0 && /no skills\/ directory/.test(r.stderr),
     'install.sh -a claude — rejects an archive without skills/',
     `install.sh -a claude — accepted an archive with no skills/ (status ${r.status}): ${r.stderr.slice(0, 200)}`);
+}
+
+{
+  // An empty prompts/ must never be reported as a payload. The unmatched glob
+  // in the framework counter would otherwise count its own literal as a file.
+  const r = runInstall(['-a', 'any'], { tarball: FIXTURE_EMPTY_PROMPTS });
+  check(r.status !== 0,
+    'install.sh — an archive with an empty prompts/ fails instead of installing nothing',
+    `install.sh — exited 0 on an empty prompts/ payload. stdout: ${r.stdout.slice(0, 200)}`);
+  check(!/[1-9]\d* analysis frameworks/.test(r.stdout),
+    'install.sh — never reports a phantom framework count for an empty payload',
+    `install.sh — reported a framework count with no frameworks: ${r.stdout.slice(0, 200)}`);
 }
 
 {

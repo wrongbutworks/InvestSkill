@@ -108,6 +108,8 @@ cp "$TMP/prompts/"*.md "$DIR/$PROMPTS_REL/"
 # advertised count is one less than the number of files copied.
 COUNT=0
 for f in "$DIR/$PROMPTS_REL"/*.md; do
+  # Bash leaves an unmatched glob literal — skip it rather than counting it.
+  [ -e "$f" ] || continue
   [ "$(basename "$f")" = "report-generator.md" ] || COUNT=$((COUNT + 1))
 done
 ok "$COUNT analysis frameworks (+ report-generator) → $PROMPTS_REL/"

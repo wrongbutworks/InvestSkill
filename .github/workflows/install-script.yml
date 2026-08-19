@@ -25,6 +25,10 @@ on:
     branches: [main, develop]
   workflow_dispatch:
 
+# Every job here only reads the repository.
+permissions:
+  contents: read
+
 jobs:
   # ── Static analysis ───────────────────────────────────────────────────────
   lint:
@@ -34,6 +38,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v5
+      with:
+        persist-credentials: false
 
     - name: bash -n (syntax)
       run: |
@@ -71,6 +77,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v5
+      with:
+        persist-credentials: false
 
     - name: Setup Node.js
       uses: actions/setup-node@v5
@@ -126,7 +134,11 @@ jobs:
         cd "$RUNNER_TEMP/live/${{ matrix.agent }}"
         ERRORS=0
 
-        prompt_count=$(ls -1 .investskill/prompts/*.md 2>/dev/null | wc -l | tr -d ' ')
+        prompt_count=0
+        for f in .investskill/prompts/*.md; do
+          [ -e "$f" ] || continue
+          prompt_count=$((prompt_count + 1))
+        done
         if [ "$prompt_count" -gt 0 ]; then
           echo "✅ $prompt_count frameworks in .investskill/prompts/"
         else

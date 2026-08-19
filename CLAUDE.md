@@ -85,7 +85,7 @@ The daily site review (`npm run review` / `.github/workflows/site-review.yml`) w
 
 When you touch `install.sh`:
 
-1. **Adding or renaming an agent** means three places, or the tests fail: the `AGENTS` list in `install.sh`, its branch in the per-agent `case` block, its row in `list_agents()`, and the matching entry in `INSTALL_TARGETS` in `site/build/build-site.js` (id + advertised `path`). The parity checks in `scripts/test-install.js` compare all of these.
+1. **Adding or renaming an agent** means four places, or the tests fail: the `AGENTS` list in `install.sh`, its branch in the per-agent `case` block, its row in `list_agents()`, and the matching entry in `INSTALL_TARGETS` in `site/build/build-site.js` (id + advertised `path`). The parity checks in `scripts/test-install.js` compare all of these.
 2. **Keep it shellcheck-clean** at `--severity=warning` (`shellcheck --severity=warning --shell=bash install.sh`) — CI fails otherwise.
 3. **Never overwrite a user's file.** Existing instruction files are appended to inside the `MARK_BEGIN`/`MARK_END` block, and a second run must leave the tree byte-identical. Both properties are asserted.
 4. `rm -rf` may only ever target the script's own `mktemp -d` directory (`$TMP`). Enforced by both the test suite and the lint job.
