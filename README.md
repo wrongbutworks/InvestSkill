@@ -42,7 +42,31 @@ Get back:     Piotroski score · ROIC · moat rating · buy/hold/sell signal
 
 ## Quick Start
 
-**Claude Code** — recommended, full slash-command support:
+**One command, any AI agent** — [pick yours on the website](https://yennj12.js.org/InvestSkill/#install):
+
+```bash
+# Claude Code
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -a claude
+
+# Swap the agent: cursor · copilot · gemini · codex · opencode · any
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -a cursor
+```
+
+The installer copies every framework into `.investskill/prompts/` and wires up your agent's own entry point — nothing else runs on your machine:
+
+| `-a` | Agent | Wires up |
+|------|-------|----------|
+| `claude` | Claude Code | `.claude/skills/<skill>/SKILL.md` (slash commands) |
+| `cursor` | Cursor | `.cursor/rules/investskill.mdc` |
+| `copilot` | GitHub Copilot | `.github/copilot-instructions.md` |
+| `gemini` | Gemini CLI | `GEMINI.md` |
+| `codex` | Codex | `AGENTS.md` |
+| `opencode` | OpenCode | `AGENTS.md` |
+| `any` | ChatGPT, Claude.ai, Ollama, … | `.investskill/prompts/` only — paste and go |
+
+Add `-g` to install for your user instead of one project, `-d DIR` to target another directory, or `-h` for all options. Existing instruction files are appended to, never overwritten, and re-running is a no-op. Read it first if you'd rather not pipe to `bash`: [install.sh](install.sh).
+
+**Claude Code via the plugin marketplace** — full slash-command support:
 ```bash
 claude
 /plugin marketplace add yennanliu/InvestSkill
@@ -50,7 +74,7 @@ claude
 /us-stock-analysis:stock-eval AAPL
 ```
 
-**Cursor / Copilot / Gemini CLI** — clone once, use everywhere:
+**Or clone the repo** — every framework in `prompts/`, use it anywhere:
 ```bash
 git clone https://github.com/yennanliu/InvestSkill.git
 cd InvestSkill

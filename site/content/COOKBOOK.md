@@ -42,7 +42,19 @@ Practical examples, setup guide, and core concepts for getting the most out of I
 - [Claude Code](https://code.claude.com) installed (`npm install -g @anthropic-ai/claude-code`)
 - An active Anthropic API key
 
-### Install InvestSkill (2 minutes)
+### Install with one command (any agent)
+
+The installer copies the frameworks into `.investskill/prompts/` and wires up your agent's own entry point:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -a claude
+# swap the agent: cursor | copilot | gemini | codex | opencode | any
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -l   # list every target
+```
+
+Add `-g` for a user-level install, `-d DIR` to target another directory, `-h` for all options.
+
+### Install InvestSkill via the plugin marketplace (2 minutes)
 
 ```bash
 # Step 1: Open Claude Code

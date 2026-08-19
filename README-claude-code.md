@@ -8,7 +8,15 @@ Professional investment analysis plugin for Claude Code. 18 analysis frameworks 
 
 ## Quick Start
 
-### Installation
+### Installation — one command
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -a claude
+```
+
+Installs every skill into `.claude/skills/` (add `-g` for `~/.claude/skills/`), so slash commands work immediately.
+
+### Installation — plugin marketplace
 
 ```bash
 # Open Claude Code

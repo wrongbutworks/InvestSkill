@@ -91,6 +91,46 @@ function setupCopyButton() {
   });
 }
 
+// ── Install picker ────────────────────────────────────────────────────────────
+function setupInstaller() {
+  const installer = document.querySelector('.installer');
+  if (!installer) return;
+
+  const tabs   = Array.from(installer.querySelectorAll('.install-tab'));
+  const panels = Array.from(installer.querySelectorAll('.install-panel'));
+
+  function select(id) {
+    tabs.forEach(t => {
+      const on = t.dataset.installTab === id;
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', String(on));
+    });
+    panels.forEach(p => p.classList.toggle('active', p.dataset.installPanel === id));
+    localStorage.setItem('is-agent', id);
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => select(t.dataset.installTab)));
+
+  // Remember the visitor's agent between visits.
+  const stored = localStorage.getItem('is-agent');
+  if (stored && tabs.some(t => t.dataset.installTab === stored)) select(stored);
+
+  installer.querySelectorAll('.install-copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const cmd = btn.closest('.install-panel')?.querySelector('.install-cmd code')?.textContent || '';
+      const original = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(cmd);
+        btn.textContent = btn.dataset.copiedLabel || 'Copied';
+        btn.classList.add('done');
+      } catch {
+        btn.textContent = 'Failed';
+      }
+      setTimeout(() => { btn.textContent = original; btn.classList.remove('done'); }, 1800);
+    });
+  });
+}
+
 // ── Mobile sidebar ────────────────────────────────────────────────────────────
 function setupSidebar() {
   const toggle  = document.getElementById('sidebar-toggle');
@@ -207,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buildTOC();
   setupScrollSpy();
   setupCopyButton();
+  setupInstaller();
   setupSidebar();
   setupSearch();
 });

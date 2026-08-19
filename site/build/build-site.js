@@ -703,6 +703,119 @@ function buildLangSwitch(lang, outFile) {
     </details>`;
 }
 
+// ---------------------------------------------------------------------------
+// Install picker (landing pages)
+// ---------------------------------------------------------------------------
+// One curl command per AI agent, mirroring `install.sh -a <agent>`. Keep this
+// list in sync with the AGENTS list in install.sh.
+const INSTALL_URL = `https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh`;
+const INSTALL_TARGETS = [
+  {
+    id: 'claude', label: 'Claude Code', icon: '🟣', path: '.claude/skills/',
+    then: '/stock-eval AAPL',
+    note: {
+      en: 'Installs all skills as Claude Code skills — slash commands work out of the box.',
+      zh: '將所有技能安裝為 Claude Code skills——斜線指令立即可用。',
+    },
+  },
+  {
+    id: 'cursor', label: 'Cursor', icon: '⚡', path: '.cursor/rules/investskill.mdc',
+    then: '@.investskill/prompts/stock-eval.md Evaluate Apple',
+    note: {
+      en: 'Adds a Cursor rule that points the agent at the frameworks.',
+      zh: '新增一條 Cursor rule，讓 AI 知道去哪裡讀框架。',
+    },
+  },
+  {
+    id: 'copilot', label: 'GitHub Copilot', icon: '🐙', path: '.github/copilot-instructions.md',
+    then: '#file:.investskill/prompts/stock-eval.md Evaluate Apple',
+    note: {
+      en: 'Appends an instructions block — your existing file is preserved.',
+      zh: '在指令檔尾端附加一段區塊——原有內容不會被覆蓋。',
+    },
+  },
+  {
+    id: 'gemini', label: 'Gemini CLI', icon: '✨', path: 'GEMINI.md',
+    then: '@.investskill/prompts/stock-eval.md Evaluate Apple',
+    note: {
+      en: 'Gemini CLI loads GEMINI.md automatically on start.',
+      zh: 'Gemini CLI 啟動時會自動載入 GEMINI.md。',
+    },
+  },
+  {
+    id: 'codex', label: 'Codex', icon: '🧠', path: 'AGENTS.md',
+    then: 'Evaluate AAPL using the stock-eval framework',
+    note: {
+      en: 'Uses the AGENTS.md convention — read by Codex on every run.',
+      zh: '採用 AGENTS.md 慣例——Codex 每次執行都會讀取。',
+    },
+  },
+  {
+    id: 'opencode', label: 'OpenCode', icon: '◨', path: 'AGENTS.md',
+    then: 'Evaluate AAPL using the stock-eval framework',
+    note: {
+      en: 'Same AGENTS.md block — works with any agent that reads it.',
+      zh: '同樣是 AGENTS.md 區塊——任何讀取它的 agent 都適用。',
+    },
+  },
+  {
+    id: 'any', label: 'Any LLM', icon: '📋', path: '.investskill/prompts/',
+    then: 'cat .investskill/prompts/stock-eval.md',
+    note: {
+      en: 'Just the markdown — paste a framework into ChatGPT, Claude.ai, or a local model.',
+      zh: '只安裝 markdown——複製任一框架貼到 ChatGPT、Claude.ai 或本地模型。',
+    },
+  },
+];
+
+function buildInstaller(lang) {
+  const T = lang === 'zh'
+    ? { eyebrow: '安裝', title: '一行指令，裝進任何 AI 代理',
+        desc: `選擇你的 AI 工具，複製指令執行即可。安裝腳本會把 ${FRAMEWORK_COUNT} 個框架放進專案，並幫你接上該工具的設定檔。`,
+        copy: '複製', copied: '已複製', then: '接著輸入', script: '檢視安裝腳本' }
+    : { eyebrow: 'Install', title: 'One command for any AI agent',
+        desc: `Pick your tool, copy the command, run it. The script drops the ${FRAMEWORK_COUNT} frameworks into your project and wires up that tool's config file.`,
+        copy: 'Copy', copied: 'Copied', then: 'Then run', script: 'Read the install script' };
+
+  const tabs = INSTALL_TARGETS.map((t, i) =>
+    `<button class="install-tab${i === 0 ? ' active' : ''}" data-install-tab="${t.id}" type="button" role="tab" aria-selected="${i === 0}">
+          <span class="install-tab-icon" aria-hidden="true">${t.icon}</span>${t.label}
+        </button>`).join('\n        ');
+
+  const panels = INSTALL_TARGETS.map((t, i) => {
+    const cmd = `curl -fsSL ${INSTALL_URL} | bash -s -- -a ${t.id}`;
+    return `<div class="install-panel${i === 0 ? ' active' : ''}" data-install-panel="${t.id}" role="tabpanel">
+          <div class="install-panel-head">
+            <span class="install-panel-title">${t.label}</span>
+            <code class="install-path">${t.path}</code>
+            <button class="install-copy" type="button" data-copied-label="${T.copied}">${T.copy}</button>
+          </div>
+          <pre class="install-cmd"><code>${cmd}</code></pre>
+          <p class="install-note">${t.note[lang]}</p>
+          <p class="install-then"><span class="install-then-label">${T.then}</span><code>${t.then}</code></p>
+        </div>`;
+  }).join('\n        ');
+
+  return `
+    <section class="installer" id="install">
+      <div class="install-head">
+        <p class="install-eyebrow">${T.eyebrow}</p>
+        <h2>${T.title}</h2>
+        <p class="install-desc">${T.desc}</p>
+      </div>
+      <div class="install-tabs" role="tablist">
+        ${tabs}
+      </div>
+      <div class="install-panels">
+        ${panels}
+      </div>
+      <p class="install-foot">
+        <a href="${GITHUB_BLOB}/install.sh" target="_blank" rel="noopener noreferrer">${T.script}</a>
+      </p>
+    </section>
+`;
+}
+
 function htmlPage(page, content) {
   const lang = langOf(page.outFile);
   const nav = buildNav(lang, page.key);
@@ -720,13 +833,13 @@ function htmlPage(page, content) {
   const L = lang === 'zh'
     ? {
         badge:  `${FRAMEWORK_COUNT} 項分析框架`,
-        cta:    '開始使用', ctaHref: '#-快速開始30-秒',
+        cta:    '開始使用', ctaHref: '#install',
         stats:  [[String(FRAMEWORK_COUNT), '分析框架'], ['$0', '零 API 金鑰 · 零費用'], ['MIT', '開源授權'], ['0', '免安裝 · 純提示詞']],
         platLabel: '支援平台',
       }
     : {
         badge:  `${FRAMEWORK_COUNT} analysis frameworks`,
-        cta:    'Get Started', ctaHref: '#quick-start',
+        cta:    'Get Started', ctaHref: '#install',
         stats:  [[String(FRAMEWORK_COUNT), 'Analysis frameworks'], ['$0', 'No API keys · no fees'], ['MIT', 'Open-source license'], ['0', 'Runtime — just prompts']],
         platLabel: 'Runs on',
       };
@@ -752,6 +865,8 @@ function htmlPage(page, content) {
       </div>`
     : '';
   const heroOrbs = isHome ? `<span class="hero-orbs" aria-hidden="true"></span>\n      ` : '';
+  // Landing pages get the curl install picker directly under the hero.
+  const installer = isHome ? buildInstaller(lang) : '';
 
   return `<!DOCTYPE html>
 <html lang="${lang === 'zh' ? 'zh-Hant' : 'en'}" data-theme="light">
@@ -840,6 +955,7 @@ ${nav}
         </a>
       </div>${heroExtras}
     </div>
+${installer}
     <article class="markdown-body">
 ${content}
     </article>

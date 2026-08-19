@@ -67,7 +67,33 @@ InvestSkill 是企業級投資分析工具包，為各 AI 平台帶來機構級�
 
 ## 🚀 快速開始（30 秒）
 
-### Claude Code（推薦）
+### 一行指令安裝（推薦）
+
+在[官網選擇你的 AI 工具](https://yennj12.js.org/InvestSkill/#install)，或直接執行：
+
+```bash
+# Claude Code
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -a claude
+
+# 換成你的工具：cursor · copilot · gemini · codex · opencode · any
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -a cursor
+```
+
+安裝腳本會把所有框架複製到 `.investskill/prompts/`，並接上該工具自己的入口設定：
+
+| `-a` | 工具 | 安裝位置 |
+|------|------|----------|
+| `claude` | Claude Code | `.claude/skills/<skill>/SKILL.md`（斜線指令） |
+| `cursor` | Cursor | `.cursor/rules/investskill.mdc` |
+| `copilot` | GitHub Copilot | `.github/copilot-instructions.md` |
+| `gemini` | Gemini CLI | `GEMINI.md` |
+| `codex` | Codex | `AGENTS.md` |
+| `opencode` | OpenCode | `AGENTS.md` |
+| `any` | ChatGPT、Claude.ai、Ollama… | 只安裝 `.investskill/prompts/`，複製貼上即用 |
+
+加上 `-g` 可安裝到使用者層級（而非單一專案）、`-d DIR` 指定目錄、`-h` 查看所有選項。既有的指令檔只會**附加**、不會覆蓋，重複執行不會產生重複內容。不想直接 pipe 到 `bash`？先看過腳本：[install.sh](install.sh)。
+
+### Claude Code（外掛市集）
 ```bash
 claude
 /plugin marketplace add yennanliu/InvestSkill
@@ -256,6 +282,16 @@ gemini
 ---
 
 ## 🛠️ 安裝方式
+
+### curl 一行安裝（所有工具通用）
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -a AGENT
+# AGENT = claude | cursor | copilot | gemini | codex | opencode | any
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -l   # 查看各工具安裝位置
+```
+
+詳細對照表見上方[快速開始](#-快速開始30-秒)。
 
 ### Claude Code（一般使用者推薦）
 
