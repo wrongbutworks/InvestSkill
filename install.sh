@@ -106,7 +106,10 @@ mkdir -p "$DIR/$PROMPTS_REL"
 cp "$TMP/prompts/"*.md "$DIR/$PROMPTS_REL/"
 # report-generator is an output tool, not an analysis framework — hence the
 # advertised count is one less than the number of files copied.
-COUNT=$(ls -1 "$DIR/$PROMPTS_REL" | grep -vc '^report-generator\.md$' | tr -d ' ')
+COUNT=0
+for f in "$DIR/$PROMPTS_REL"/*.md; do
+  [ "$(basename "$f")" = "report-generator.md" ] || COUNT=$((COUNT + 1))
+done
 ok "$COUNT analysis frameworks (+ report-generator) → $PROMPTS_REL/"
 
 skill_names() { ls -1 "$TMP/prompts" | sed 's/\.md$//' | sort; }

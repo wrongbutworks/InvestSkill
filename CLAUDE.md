@@ -5,7 +5,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm test                    # Run unit tests (270+ skill/structure tests)
+npm test                    # Run all unit tests (skill/structure + install script)
+npm run test:skills         # Skill/structure tests only (270+ checks)
+npm run test:install        # install.sh tests (static checks + sandboxed runs)
 npm run validate            # Validate prompt file contents and format
 npm run pre-release         # Full pre-release check: pre-release-check + validate + test
 npm run verify              # Verify local setup is correct
@@ -76,6 +78,20 @@ Always update **both** the English and Traditional Chinese (`-zh-TW`) variants o
 ## QA Report Retention Rule
 
 The daily site review (`npm run review` / `.github/workflows/site-review.yml`) writes `qa/site_review_YYYYMMDD.md`. **Only the last 5 days are kept** — `scripts/site-review.js` prunes older reports on every run (`RETENTION_DAYS`), and the workflow stages `qa/` with `git add -A` so those deletions land in the same commit. `qa/PROJECT-REVIEW.md` is the hand-written qualitative review and is never pruned.
+
+## Install Script Rule
+
+`install.sh` is the one-command curl installer (`curl -fsSL .../install.sh | bash -s -- -a <agent>`). It is tested by `scripts/test-install.js` (`npm run test:install`) and by `.github/workflows/install-script.yml`.
+
+When you touch `install.sh`:
+
+1. **Adding or renaming an agent** means three places, or the tests fail: the `AGENTS` list in `install.sh`, its branch in the per-agent `case` block, its row in `list_agents()`, and the matching entry in `INSTALL_TARGETS` in `site/build/build-site.js` (id + advertised `path`). The parity checks in `scripts/test-install.js` compare all of these.
+2. **Keep it shellcheck-clean** at `--severity=warning` (`shellcheck --severity=warning --shell=bash install.sh`) — CI fails otherwise.
+3. **Never overwrite a user's file.** Existing instruction files are appended to inside the `MARK_BEGIN`/`MARK_END` block, and a second run must leave the tree byte-identical. Both properties are asserted.
+4. `rm -rf` may only ever target the script's own `mktemp -d` directory (`$TMP`). Enforced by both the test suite and the lint job.
+5. The tests run `install.sh` for real in a sandbox with a `curl` test double serving a tarball built from the working tree — no network, but the actual download → extract → copy → wire path executes. `KEEP_INSTALL_TEST_DIR=1` keeps the sandbox for inspection.
+
+Documented curl commands in `README*.md` and `site/content/COOKBOOK*.md` are checked too: the URL must be the `raw.githubusercontent.com/yennanliu/InvestSkill/<ref>/install.sh` form and every `-a AGENT` must be a supported agent.
 
 ## Version Consistency Rule
 
