@@ -42,7 +42,19 @@ InvestSkill 的實用範例、安裝指南與核心概念。
 - 已安裝 [Claude Code](https://code.claude.com)（`npm install -g @anthropic-ai/claude-code`）
 - 有效的 Anthropic API 金鑰
 
-### 安裝 InvestSkill（約 2 分鐘）
+### 一行指令安裝（所有工具通用）
+
+安裝腳本會把框架複製到 `.investskill/prompts/`，並接上該工具自己的入口設定：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -a claude
+# 換成你的工具：cursor | copilot | gemini | codex | opencode | any
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -l   # 列出所有安裝位置
+```
+
+加上 `-g` 安裝到使用者層級、`-d DIR` 指定目錄、`-h` 查看所有選項。
+
+### 透過外掛市集安裝 InvestSkill（約 2 分鐘）
 
 ```bash
 # 步驟 1：開啟 Claude Code

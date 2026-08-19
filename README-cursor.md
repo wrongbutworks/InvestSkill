@@ -8,7 +8,15 @@ Professional investment analysis rules for Cursor IDE. 18 universal prompts for 
 
 ## Quick Start
 
-### Installation
+### Installation — one command
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -a cursor
+```
+
+Writes `.cursor/rules/investskill.mdc` and the frameworks into `.investskill/prompts/`, then use them with `@.investskill/prompts/stock-eval.md Evaluate Apple`.
+
+### Installation — clone the repo
 
 Cursor automatically loads rules from `.cursor/rules/` directory.
 

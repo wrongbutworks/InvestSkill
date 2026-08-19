@@ -30,6 +30,14 @@ The framework files are identical either way — only how the model gets its dat
 ollama pull qwen2.5:32b        # recommended floor for reliable formatting + tool use
 ```
 
+### 2. Get the frameworks
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yennanliu/InvestSkill/main/install.sh | bash -s -- -a any
+```
+
+Drops all frameworks into `.investskill/prompts/` — no config file touched, nothing else installed. (Cloning the repo works just as well.)
+
 ### Path A — paste (simplest)
 
 ```bash
