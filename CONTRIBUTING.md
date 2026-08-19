@@ -109,7 +109,8 @@ npm run verify
 npm run pre-release
 
 # Or individually
-npm test                          # Unit tests
+npm test                          # Unit tests (skills + install script)
+npm run test:install              # install.sh only (lint-style + sandboxed runs)
 npm run validate                  # Prompt quality
 npm run verify                    # Setup verification
 npm run integration-tests         # Platform artifacts
